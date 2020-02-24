@@ -21,3 +21,17 @@
     right: 0;
     padding-right: 5px;
 }
+
+/* Table Styling */
+
+table {
+    width: 100%;
+}
+
+th {
+    height: 50px;
+}
+
+#date {
+    text-align: right;
+}
