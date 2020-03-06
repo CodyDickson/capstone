@@ -1,6 +1,7 @@
 <?php
 $monthTracker = array(false, false, false, false, false, false, false, false, false, false, false, false);
 $monthList = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+$committeeList = array("Fundraising");
 
 $sql = "SELECT * FROM events ORDER BY EventStartDate";
 if ($result = mysqli_query($conn, $sql)) {
@@ -18,7 +19,7 @@ if ($result = mysqli_query($conn, $sql)) {
                 echo "<td><h2>".$row['EventName']."</h2></td>";
             echo "</tr>";
             echo "<tr>";
-                $committeeName = CommitteeCheck($row["CommitteeID"]);
+                $committeeName = $committeeList[($row["CommitteeID"]) - 1];
                 echo "<td><i>Hosted by the $committeeName Committee</i></td>";
             echo "</tr>";
             echo"<tr>";
@@ -38,12 +39,5 @@ if ($result = mysqli_query($conn, $sql)) {
     }
 } else {
     echo "ERROR: Could not execute $sql.".mysqli_error($link);
-}
-
-function CommitteeCheck($committeeID) {
-    if ($committeeID == 1) {
-        $name = "Fundraising";
-        return $name;
-    }
 }
 ?>
