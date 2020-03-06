@@ -38,7 +38,7 @@ if (isset($_POST['submit'])) {
     </div>
 </div>
 <?php
-    CloseCon($conn);
+CloseCon($conn);
 ?>
 </body>
 </html>
